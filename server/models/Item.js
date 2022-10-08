@@ -14,21 +14,23 @@ Item.init(
       autoIncrement: true
     },
     item_name: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
     costPerUnit: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     insideOf: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "machine",
-        key: "model"
+        key: "id"
       }
     }
   },

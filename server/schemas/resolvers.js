@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Machine, Item } = require('../models');
 
 const resolvers = {
   Query: {
@@ -6,8 +6,15 @@ const resolvers = {
       return User.findAll()
     },
 
+    machinesForUser: async (parent, {username}) => {
+      return Machine.findAll({where: {ownedBy: username}})
+    },
+
+    itemsForMachine: async (parent, {id}) => {
+      return Item.findAll({where: {insideOf: id}})
+    },
+
     user: async(parent, {username}) => {
-      console.log(username)
       return User.findOne({where: {
         username: username
       }})

@@ -5,26 +5,28 @@ const User = require("./User")
 const Machine = require("./Machine")
 const Item = require("./Item")
 
-Machine.belongsToMany(User, {
+Machine.belongsTo(User, {
   // Define the third table needed to store the foreign keys
   through: {
     model: User,
     unique: false
   },
   // Define an alias for when data is retrieved
-  as: 'ownedBy'
+  foreignKey: 'ownedBy',
+  through: "machines_owned_by"
 });
 
 
-Item.belongsToMany(Machine, {
+Item.belongsTo(Machine, {
     // Define the third table needed to store the foreign keys
     through: {
       model: Machine,
       unique: false
     },
     // Define an alias for when data is retrieved
-    as: 'insideOf'
   });
+
+  Machine.hasMany(Item)
 
 
  module.exports = { User, Machine, Item };

@@ -7,10 +7,15 @@ class Machine extends Model {}
 // create fields/columns for Trip model
 Machine.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
     model: {
       type: DataTypes.STRING,
       allowNull: false,
-      primaryKey: true,
     },
     revenue: {
       type: DataTypes.INTEGER,
