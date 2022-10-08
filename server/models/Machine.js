@@ -11,6 +11,10 @@ Machine.init(
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
+    },
+    revenue: {
+      type: DataTypes.INTEGER,
+
     },  
     ownedBy: {
         type: DataTypes.STRING,

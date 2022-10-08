@@ -20,6 +20,9 @@ Item.init(
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    costPerUnit: {
+      type: DataTypes.INTEGER
+    },
     insideOf: {
       type: DataTypes.STRING,
       allowNull: false,
