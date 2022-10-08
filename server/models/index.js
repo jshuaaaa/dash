@@ -2,25 +2,29 @@
 // const Location = require('./User');
 // const Trip = require('./Trip');
 const User = require("./User")
+const Machine = require("./Machine")
+const Item = require("./Item")
 
-// Traveller.belongsToMany(Location, {
-//   // Define the third table needed to store the foreign keys
-//   through: {
-//     model: Trip,
-//     unique: false
-//   },
-//   // Define an alias for when data is retrieved
-//   as: 'planned_trips'
-// });
+Machine.belongsToMany(User, {
+  // Define the third table needed to store the foreign keys
+  through: {
+    model: User,
+    unique: false
+  },
+  // Define an alias for when data is retrieved
+  as: 'ownedBy'
+});
 
-// Location.belongsToMany(Traveller, {
-//   // Define the third table needed to store the foreign keys
-//   through: {
-//     model: Trip,
-//     unique: false
-//   },
-//   // Define an alias for when data is retrieved
-//   as: 'location_travellers'
-// });
 
- module.exports = { User };
+Item.belongsToMany(Machine, {
+    // Define the third table needed to store the foreign keys
+    through: {
+      model: Machine,
+      unique: false
+    },
+    // Define an alias for when data is retrieved
+    as: 'insideOf'
+  });
+
+
+ module.exports = { User, Machine, Item };
