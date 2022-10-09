@@ -34,8 +34,8 @@ const typeDefs = gql`
     addUser(username: String!, password: String!, email: String!): User
     addMachine(model: String, revenue: Int, ownedBy: String): Machine
     addItem(item_name: String, quantity: Int, costPerUnit: Int, insideOf: String): Item
-    changeCostOfItem(id: Int, costPerUnit: Int): Item
-    changeQuantity(id: Int, quantity: Int): Item
+    changeCostOfItem(_id: Int, costPerUnit: Int): Item
+    changeQuantity(_id: Int, quantity: Int): Item
   }
 `;
 

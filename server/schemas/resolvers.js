@@ -33,26 +33,29 @@ const resolvers = {
     addItem: async (parent, { item_name,quantity,costPerUnit,insideOf }) => {
       return Item.create({ item_name,quantity,costPerUnit,insideOf });
     },
-    changeCostOfItem: async (parent, { id, costPerUnit}) => {
-      return Item.update(
+    changeCostOfItem: async (parent, { _id, costPerUnit}) => {
+      await Item.update(
         {
           costPerUnit: costPerUnit
         },
         {
-          where: {id: id}
+          where: {id: _id}
         }
       )
+      return Item.findOne({where:{id:_id}})
     },
-    changeQuantity: async (parent, { id, quantity}) => {
-      return Item.update(
+    changeQuantity: async (parent, { _id, quantity}) => {
+      await Item.update(
         {
           quantity: quantity
         },
         {
-          where: {id: id}
+          where: {id: _id}
         }
       )
+      return Item.findOne({where:{id:_id}})
     },
+    
   },
 };
 
