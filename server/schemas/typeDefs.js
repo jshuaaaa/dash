@@ -26,12 +26,14 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    itemsForMachine(id: Int!): Item
-    machinesForUser(username: String!): Machine
+    itemsForMachine(id: Int!): [Item]
+    machinesForUser(username: String!): [Machine]
   }
 
   type Mutation {
     addUser(username: String!, password: String!, email: String!): User
+    addMachine(model: String, revenue: Int, ownedBy: String): Machine
+    addItem(item_name: String, quantity: Int, costPerUnit: Int, insideOf: String): Item
   }
 `;
 

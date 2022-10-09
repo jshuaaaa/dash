@@ -27,6 +27,12 @@ const resolvers = {
     addUser: async (parent, { username, password, email }) => {
       return User.create({ username, password, email });
     },
+    addMachine: async (parent, { model,revenue,ownedBy }) => {
+      return Machine.create({ model,revenue,ownedBy });
+    },
+    addItem: async (parent, { item_name,quantity,costPerUnit,insideOf }) => {
+      return Item.create({ item_name,quantity,costPerUnit,insideOf });
+    },
   },
 };
 
