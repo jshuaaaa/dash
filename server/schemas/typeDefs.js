@@ -37,7 +37,7 @@ const typeDefs = gql`
     changeCostOfItem(_id: Int, costPerUnit: Int): Item
     changeQuantity(_id: Int, quantity: Int): Item
     deleteItem(_id: Int): Item
-    deleteUser(_id: Int): User
+    deleteUser(username: String): User
     deleteMachine(_id: Int): Machine
   }
 `;
