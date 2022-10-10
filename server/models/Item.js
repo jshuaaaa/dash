@@ -32,7 +32,16 @@ Item.init(
         model: "machine",
         key: "id"
       }
+    },
+    ownedBy: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      references: {
+        model: "users",
+        key: "username"
+      }
     }
+
   },
   {
     sequelize,

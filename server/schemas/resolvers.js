@@ -60,11 +60,14 @@ const resolvers = {
       return 'item deleted'
     },
     deleteMachine: async (parent, {_id}) => {
+      await Item.destroy({where: {insideOf: _id}})
       await Machine.destroy({where : {id: _id}})
       return 'Machine deleted'
     } ,
-    deleteUser: async (parent, {_id}) => {
-      await User.destroy({where : {id: _id}})
+    deleteUser: async (parent, {username}) => {
+      await Item.destroy({where: {ownedBy: username}})
+      await Machine.destroy({where: {ownedBy: username} })
+      await User.destroy({where : {username: username}})
       return 'User deleted'
     }  
     
