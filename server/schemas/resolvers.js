@@ -55,6 +55,18 @@ const resolvers = {
       )
       return Item.findOne({where:{id:_id}})
     },
+    deleteItem: async (parent, {_id}) => {
+      await Item.destroy({where : {id: _id}})
+      return 'item deleted'
+    },
+    deleteMachine: async (parent, {_id}) => {
+      await Machine.destroy({where : {id: _id}})
+      return 'Machine deleted'
+    } ,
+    deleteUser: async (parent, {_id}) => {
+      await User.destroy({where : {id: _id}})
+      return 'User deleted'
+    }  
     
   },
 };

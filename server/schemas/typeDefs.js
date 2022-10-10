@@ -36,6 +36,9 @@ const typeDefs = gql`
     addItem(item_name: String, quantity: Int, costPerUnit: Int, insideOf: String): Item
     changeCostOfItem(_id: Int, costPerUnit: Int): Item
     changeQuantity(_id: Int, quantity: Int): Item
+    deleteItem(_id: Int): Item
+    deleteUser(_id: Int): User
+    deleteMachine(_id: Int): Machine
   }
 `;
 
